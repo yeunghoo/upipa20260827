@@ -1,0 +1,30 @@
+PODS:
+  - FBAudienceNetwork (6.22.0)
+  - TPExchange (13.8.60)
+  - TradPlusAdSDK (15.13.0):
+    - TradPlusAdSDK/TradPlusAds (= 15.13.0)
+  - TradPlusAdSDK/FacebookAdapter (15.13.0)
+  - TradPlusAdSDK/TPCrossAdapter (15.13.0)
+  - TradPlusAdSDK/TradPlusAds (15.13.0):
+    - TPExchange (= 13.8.60)
+
+DEPENDENCIES:
+  - FBAudienceNetwork (= 6.22.0)
+  - TradPlusAdSDK (= 15.13.0)
+  - TradPlusAdSDK/FacebookAdapter (= 15.13.0)
+  - TradPlusAdSDK/TPCrossAdapter (= 15.13.0)
+
+SPEC REPOS:
+  trunk:
+    - FBAudienceNetwork
+    - TPExchange
+    - TradPlusAdSDK
+
+SPEC CHECKSUMS:
+  FBAudienceNetwork: b05c65487114aa3bf3a68e865c60937a9fb03b69
+  TPExchange: fe78bfae832d811394fb2bde33b976e3594129be
+  TradPlusAdSDK: 9a6424fec0c6f2c5eb927e363f75cf16658b8161
+
+PODFILE CHECKSUM: 5081fe53793d18c411e1e9f7b94ce75f97a04f2f
+
+COCOAPODS: 1.16.2

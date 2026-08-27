@@ -1,0 +1,74 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="GameMgr">
+			<method name="CloseOk"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="NextLevel"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="OnReturn"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="ReloadScene"/>
+			<method name="SwitchTips"/>
+		</type>
+		<type fullname="Initial">
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnButtonClicked"/>
+			<method name="OnReturn"/>
+		</type>
+		<type fullname="Loading">
+			<method name="SwitchScene"/>
+		</type>
+	</assembly>
+</linker>

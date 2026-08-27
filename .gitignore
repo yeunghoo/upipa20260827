@@ -1,0 +1,23 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+
+# CocoaPods (keep Podfile.lock)
+Pods/
+
+# Archives & exports
+*.xcarchive
+*.ipa
+*.dSYM.zip
+
+# macOS
+.DS_Store
+
+# Secrets - never commit
+*.p12
+*.mobileprovision
+*.cer
+*.pem
