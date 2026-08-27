@@ -2,8 +2,6 @@ name: iOS Build & Upload
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main, master]
 
 jobs:
   build-and-upload:
@@ -38,8 +36,13 @@ jobs:
           security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
           security unlock-keychain -p "" $KEYCHAIN_PATH
           security import $CERT_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-          security list-keychain -d user -s $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH login.keychain-db
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "" $KEYCHAIN_PATH
+          security find-identity -v -p codesigning $KEYCHAIN_PATH
+          if ! security find-identity -v -p codesigning $KEYCHAIN_PATH | grep -q "JZ6J54A2Q6"; then
+            echo "Missing JiaYun Liu distribution identity. Export the p12 from Keychain Access with private key."
+            exit 1
+          fi
 
       - name: Install provisioning profile
         env:
@@ -58,7 +61,10 @@ jobs:
             -configuration Release \
             -destination 'generic/platform=iOS' \
             -archivePath $RUNNER_TEMP/Billiard.xcarchive \
-            archive
+            archive \
+            CODE_SIGN_IDENTITY="iPhone Distribution: JiaYun Liu (JZ6J54A2Q6)" \
+            "CODE_SIGN_IDENTITY[sdk=iphoneos*]=iPhone Distribution: JiaYun Liu (JZ6J54A2Q6)" \
+            DEVELOPMENT_TEAM=JZ6J54A2Q6
 
       - name: Export IPA
         run: |
