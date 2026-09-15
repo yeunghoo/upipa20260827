@@ -1,8 +1,9 @@
 //
 //  TPAdManager.mm
-//  Billiard — TradPlus + Meta Audience Network
+//  Billiard — TradPlus 中介（Meta / Vungle / InMobi / Chartboost / Fyber·DT / Bigo）
 //
 //  参考：
+//  - https://docs.tradplusad.com/docs/integration_ios/download/
 //  - https://docs.tradplusad.com/docs/integration_ios/ios_sdk/ios_sdk_start/
 //  - https://docs.tradplusad.com/docs/integration_ios/ios14
 //  - https://docs.tradplusad.com/docs/integration_ios/fast_integration_ios/fast_rewarded/
@@ -73,9 +74,10 @@ static const CFAbsoluteTime kTPShowNotReadyReloadCooldown = 12.0;
 
 typedef NS_ENUM(NSInteger, TPAdReloadReason) {
     TPAdReloadReasonStartup = 0,       // 首次启动
-    TPAdReloadReasonClosed = 1,        // 广告关闭
+    TPAdReloadReasonClosed = 1,        // 广告关闭（兜底）
     TPAdReloadReasonShowNotReady = 2,  // 展示时未就绪
     TPAdReloadReasonShowFailed = 3,    // 展示失败（等同需要补货）
+    TPAdReloadReasonOnShow = 4,        // show 成功立即预载下一条（播放期间跑瀑布流）
 };
 
 @implementation TPAdManager
@@ -227,7 +229,7 @@ typedef NS_ENUM(NSInteger, TPAdReloadReason) {
     [self setupRewarded];
     [self setupInterstitial];
     // 横幅按需展示，不在启动时自动加载
-    // 重载策略：① 启动预载 ② 关闭后重载 ③ 展示未就绪时重载（有冷却）
+    // 重载策略：① 启动预载 ② show 成功立即预载下一条 ③ 关闭后兜底 ④ 展示未就绪（有冷却）
     [self loadRewardedForReason:TPAdReloadReasonStartup];
     [self loadInterstitialForReason:TPAdReloadReasonStartup];
 }
@@ -239,9 +241,10 @@ typedef NS_ENUM(NSInteger, TPAdReloadReason) {
     switch (reason)
     {
         case TPAdReloadReasonStartup: return @"启动";
-        case TPAdReloadReasonClosed: return @"关闭后";
+        case TPAdReloadReasonClosed: return @"关闭后兜底";
         case TPAdReloadReasonShowNotReady: return @"展示未就绪";
         case TPAdReloadReasonShowFailed: return @"展示失败";
+        case TPAdReloadReasonOnShow: return @"show后预载下一条";
     }
     return @"未知";
 }
@@ -289,7 +292,8 @@ typedef NS_ENUM(NSInteger, TPAdReloadReason) {
         TPAds_Log(@"加载激励视频跳过：SDK 未就绪");
         return;
     }
-    if ([self isRewardedReady])
+    // OnShow：正在展示当前条，仍要强制预载下一条；不能因 isAdReady 短暂仍为 YES 而跳过
+    if (reason != TPAdReloadReasonOnShow && [self isRewardedReady])
     {
         TPAds_Log(@"加载激励视频跳过：已就绪");
         return;
@@ -352,6 +356,8 @@ typedef NS_ENUM(NSInteger, TPAdReloadReason) {
     }
     TPAds_Log(@"展示激励视频 sceneId=%@", sceneId ?: @"(nil)");
     [self.rewardedAd showAdWithSceneId:sceneId];
+    // show 成功立刻预载下一条：播放那几十秒里瀑布流可跑完，关完再点更容易直接出片
+    [self loadRewardedForReason:TPAdReloadReasonOnShow];
     return YES;
 }
 
@@ -380,7 +386,8 @@ typedef NS_ENUM(NSInteger, TPAdReloadReason) {
         TPAds_Log(@"加载插屏跳过：SDK 未就绪");
         return;
     }
-    if ([self isInterstitialReady])
+    // OnShow：正在展示当前条，仍要强制预载下一条
+    if (reason != TPAdReloadReasonOnShow && [self isInterstitialReady])
     {
         TPAds_Log(@"加载插屏跳过：已就绪");
         return;
@@ -422,6 +429,8 @@ typedef NS_ENUM(NSInteger, TPAdReloadReason) {
     }
     TPAds_Log(@"展示插屏 sceneId=%@", sceneId ?: @"(nil)");
     [self.interstitialAd showAdWithSceneId:sceneId];
+    // show 成功立刻预载下一条：播放/展示期间瀑布流可跑完
+    [self loadInterstitialForReason:TPAdReloadReasonOnShow];
     return YES;
 }
 

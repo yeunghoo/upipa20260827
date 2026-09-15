@@ -1,6 +1,6 @@
 //
 //  TPAdConfig.h
-//  Billiard — TradPlus + Meta Audience Network
+//  Billiard — TradPlus 中介配置（广告源在后台配置：Meta/Vungle/InMobi/Chartboost/Fyber·DT/Bigo）
 //
 
 #import <Foundation/Foundation.h>

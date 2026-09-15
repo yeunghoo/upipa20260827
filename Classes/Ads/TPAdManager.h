@@ -1,8 +1,8 @@
 //
 //  TPAdManager.h
-//  Billiard — TradPlus + Meta Audience Network
+//  Billiard — TradPlus 中介（Meta / Vungle / InMobi / Chartboost / Fyber·DT / Bigo）
 //
-//  封装初始化 / 激励 / 插屏 / 横幅。业务场景展示时机由后续接入。
+//  封装初始化 / 激励 / 插屏 / 横幅。广告源参数在 TradPlus 后台配置即可。
 //
 
 #import <Foundation/Foundation.h>
@@ -20,7 +20,8 @@ typedef NS_ENUM(NSInteger, TPBannerPosition) {
 + (instancetype)shared;
 
 /// 启动广告系统：ATT → TradPlus init → 预加载激励/插屏
-/// 重载策略：① 启动预载 ② 关闭后重载 ③ 展示未就绪时重载（带冷却，失败不自动连环）
+/// 重载策略：① 启动预载 ② show 成功立即预载下一条（播放期间跑瀑布流）
+/// ③ 关闭后兜底重载 ④ 展示未就绪时重载（带冷却，失败不自动连环）
 - (void)start;
 
 @property (nonatomic, readonly, getter=isSDKInitialized) BOOL sdkInitialized;
