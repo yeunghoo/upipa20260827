@@ -275,6 +275,7 @@
 		F1A10001B1111A5D0000000A /* GameAdsBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1A10001B1111A5D00000009 /* GameAdsBridge.mm */; };
 		F1A10001B1111A5D0000000B /* TPAdSessionLog.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1A10001B1111A5D0000000C /* TPAdSessionLog.mm */; };
 		F1A10001B1111A5D00000011 /* DummySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A10001B1111A5D00000010 /* DummySwift.swift */; };
+		F1A10001B1111A5D00000012 /* DummySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A10001B1111A5D00000010 /* DummySwift.swift */; };
 		F22847EA8DE4180F1271C9E7 /* System_CodeGen.c in Sources */ = {isa = PBXBuildFile; fileRef = 78AF403B862CA9890995154B /* System_CodeGen.c */; };
 		F3304A938577991A1F456B2E /* UnityEngine.UIElementsModule6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC6540CBB8143036750CC643 /* UnityEngine.UIElementsModule6.cpp */; };
 		F3A94B16974D263779D0F5EC /* spine-unity3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 521C477FA8330C91EF8D7E0B /* spine-unity3.cpp */; };
@@ -1458,6 +1459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A10001B1111A5D00000012 /* DummySwift.swift in Sources */,
 				9DA3B0442174CB96001678C7 /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

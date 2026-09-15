@@ -41,6 +41,13 @@ post_install do |installer|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
       config.build_settings['ENABLE_BITCODE'] = 'NO'
       config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      # Xcode 26 CI 可能把 Metal toolchain 放进 LIBRARY_SEARCH_PATHS，导致找不到
+      # libswiftCompatibility*；强制加入默认 Swift 工具链路径。
+      config.build_settings['LIBRARY_SEARCH_PATHS'] = [
+        '$(inherited)',
+        '$(DEVELOPER_DIR)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/$(PLATFORM_NAME)',
+        '$(SDKROOT)/usr/lib/swift'
+      ]
     end
   end
 end

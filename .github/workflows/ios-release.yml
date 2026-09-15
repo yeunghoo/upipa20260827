@@ -56,11 +56,13 @@ jobs:
 
       - name: Archive
         run: |
+          SWIFT_LIB="$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos"
           xcodebuild -workspace Unity-iPhone.xcworkspace \
             -scheme Unity-iPhone \
             -configuration Release \
             -destination 'generic/platform=iOS' \
             -archivePath $RUNNER_TEMP/Billiard.xcarchive \
+            LIBRARY_SEARCH_PATHS="$(inherited) ${SWIFT_LIB}" \
             archive
 
       - name: Export IPA
