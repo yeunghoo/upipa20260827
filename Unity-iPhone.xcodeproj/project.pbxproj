@@ -274,6 +274,7 @@
 		F1A10001B1111A5D00000007 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F1A10001B1111A5D00000006 /* PrivacyInfo.xcprivacy */; };
 		F1A10001B1111A5D0000000A /* GameAdsBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1A10001B1111A5D00000009 /* GameAdsBridge.mm */; };
 		F1A10001B1111A5D0000000B /* TPAdSessionLog.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1A10001B1111A5D0000000C /* TPAdSessionLog.mm */; };
+		F1A10001B1111A5D00000011 /* DummySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A10001B1111A5D00000010 /* DummySwift.swift */; };
 		F22847EA8DE4180F1271C9E7 /* System_CodeGen.c in Sources */ = {isa = PBXBuildFile; fileRef = 78AF403B862CA9890995154B /* System_CodeGen.c */; };
 		F3304A938577991A1F456B2E /* UnityEngine.UIElementsModule6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC6540CBB8143036750CC643 /* UnityEngine.UIElementsModule6.cpp */; };
 		F3A94B16974D263779D0F5EC /* spine-unity3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 521C477FA8330C91EF8D7E0B /* spine-unity3.cpp */; };
@@ -644,6 +645,7 @@
 		F1A10001B1111A5D00000009 /* GameAdsBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameAdsBridge.mm; sourceTree = "<group>"; };
 		F1A10001B1111A5D0000000C /* TPAdSessionLog.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TPAdSessionLog.mm; sourceTree = "<group>"; };
 		F1A10001B1111A5D0000000D /* TPAdSessionLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAdSessionLog.h; sourceTree = "<group>"; };
+		F1A10001B1111A5D00000010 /* DummySwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummySwift.swift; sourceTree = "<group>"; };
 		F3BB4834ADF975A61858AAA6 /* UnityEngine.UIElementsNativeModule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UnityEngine.UIElementsNativeModule.cpp; path = Classes/Native/UnityEngine.UIElementsNativeModule.cpp; sourceTree = SOURCE_ROOT; };
 		F6361BB52195CE5D00F61766 /* UnitySharedDecls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitySharedDecls.h; sourceTree = "<group>"; };
 		F6D84BBCAAC7B0EA71858A57 /* Il2CppTypeDefinitions.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = Il2CppTypeDefinitions.c; path = Classes/Native/Il2CppTypeDefinitions.c; sourceTree = SOURCE_ROOT; };
@@ -1140,6 +1142,7 @@
 				F1A10001B1111A5D0000000C /* TPAdSessionLog.mm */,
 				F1A10001B1111A5D00000008 /* GameAdsBridge.h */,
 				F1A10001B1111A5D00000009 /* GameAdsBridge.mm */,
+				F1A10001B1111A5D00000010 /* DummySwift.swift */,
 			);
 			path = Ads;
 			sourceTree = "<group>";
@@ -1474,6 +1477,7 @@
 				F1A10001B1111A5D00000004 /* TPAdManager.mm in Sources */,
 				F1A10001B1111A5D0000000B /* TPAdSessionLog.mm in Sources */,
 				F1A10001B1111A5D0000000A /* GameAdsBridge.mm in Sources */,
+				F1A10001B1111A5D00000011 /* DummySwift.swift in Sources */,
 				862C245020AEC7AC006FB4AD /* UnityWebRequest.mm in Sources */,
 				9D25ABE9213FB7CC00354C27 /* Il2CppOptions.cpp in Sources */,
 				9D25ABC1213FB6F800354C27 /* CMVideoSampling.mm in Sources */,
@@ -1746,6 +1750,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2.2.0;
 				DEVELOPMENT_TEAM = "";
@@ -1767,6 +1772,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liujiayun.poolgame;
 				PRODUCT_NAME = "$(PRODUCT_NAME_APP)";
+				SWIFT_VERSION = 5.0;
 				PROVISIONING_PROFILE = "$(PROVISIONING_PROFILE_APP)";
 				PROVISIONING_PROFILE_APP = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1794,6 +1800,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 2.2.0;
 				DEVELOPMENT_TEAM = "";
@@ -1813,6 +1820,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liujiayun.poolgame;
 				PRODUCT_NAME = "$(PRODUCT_NAME_APP)";
+				SWIFT_VERSION = 5.0;
 				PROVISIONING_PROFILE = "$(PROVISIONING_PROFILE_APP)";
 				PROVISIONING_PROFILE_APP = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1975,6 +1983,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 2.2.0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1995,6 +2004,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liujiayun.poolgame;
 				PRODUCT_NAME = "$(PRODUCT_NAME_APP)";
+				SWIFT_VERSION = 5.0;
 				PROVISIONING_PROFILE = "$(PROVISIONING_PROFILE_APP)";
 				PROVISIONING_PROFILE_APP = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2106,6 +2116,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 2.2.0;
 				DEVELOPMENT_TEAM = "";
@@ -2125,6 +2136,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liujiayun.poolgame;
 				PRODUCT_NAME = "$(PRODUCT_NAME_APP)";
+				SWIFT_VERSION = 5.0;
 				PROVISIONING_PROFILE = "$(PROVISIONING_PROFILE_APP)";
 				PROVISIONING_PROFILE_APP = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2186,6 +2198,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C8C3A35F650268D36D326FB6 /* Pods-UnityFramework.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -2250,6 +2263,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.unity3d.framework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_VERSION = 5.0;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2266,6 +2280,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A90A4DA35F55DA994318F678 /* Pods-UnityFramework.releaseforprofiling.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -2331,6 +2346,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.unity3d.framework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_VERSION = 5.0;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2347,6 +2363,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ADC85F66034862F2199819B8 /* Pods-UnityFramework.releaseforrunning.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -2413,6 +2430,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.unity3d.framework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_VERSION = 5.0;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2429,6 +2447,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B6090EC165C19C94C4245712 /* Pods-UnityFramework.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -2496,6 +2515,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.unity3d.framework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_VERSION = 5.0;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
