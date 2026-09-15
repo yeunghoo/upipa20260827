@@ -1,0 +1,38 @@
+name: Upload IPA to App Store Connect
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "GitHub Release tag that contains Billiard.ipa"
+        required: true
+        default: "ios-2.2.0"
+
+jobs:
+  upload:
+    runs-on: macos-15
+    timeout-minutes: 30
+
+    steps:
+      - name: Download IPA from Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/ipa"
+          gh release download "$RELEASE_TAG" \
+            --repo "${{ github.repository }}" \
+            --pattern "Billiard.ipa" \
+            --dir "$RUNNER_TEMP/ipa"
+          ls -lh "$RUNNER_TEMP/ipa/Billiard.ipa"
+
+      - name: Upload to App Store Connect
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+        run: |
+          xcrun altool --upload-app \
+            -f "$RUNNER_TEMP/ipa/Billiard.ipa" \
+            -t ios \
+            -u "$APPLE_ID" \
+            -p "$APPLE_APP_SPECIFIC_PASSWORD"
